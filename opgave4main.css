@@ -1,0 +1,75 @@
+* {box-sizing: border-box;}
+/* punktum i .wrapper fordi det er defineret som en class i html'en. wrapper er bare et navn, der kunne også bare stå noget vilkårligt andet.
+Istedet for class kunne man også have lavet det til en id. Men så skal punktum være # istedet. id bruger man når man definerer 1 gang. class når man skal definerer den flere gnage.
+Siden der kun skal være 1 main-head i denne kode ville det give mening at lave den som id istedet for class, men nu har jeg bare lavet det som class fordi jeg var doven. */
+    .wrapper {
+        max-width: 1024px;
+        font: Helvetica, arial, sans-serif;
+
+    }
+/* "> *" betyder at den også gælder for children af denne */
+    .wrapper > * {
+        border: 2px solid #f08c00;
+        background-color: #ffec99;
+        border-radius: 5px;
+        padding: 10px;
+    }
+/*list-style:none fjerner de elementer (prikker, strejer osv.) der er ud for lister*/
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+.main-head {
+  grid-area: header;
+}
+.content {
+  grid-area: content;
+}
+.main-nav {
+  grid-area: nav;
+}
+.side {
+  grid-area: sidebar;
+}
+.ad {
+  grid-area: ad;
+}
+.main-footer {
+  grid-area: footer;
+}
+.wrapper {
+  display: grid;
+  grid-gap: 20px;
+  height: 100vh;
+  grid-template-rows: 1fr 1fr 2fr 1fr;
+  grid-template-columns: 1fr 3fr;
+  grid-template-areas:
+    "header  header"
+    "nav     nav"
+    "sidebar content"
+    "ad footer";
+
+  }
+  /* 800 px or above  */
+  @media only screen and (min-width: 800px){
+    .wrapper {
+      display: grid;
+      grid-gap: 20px;
+      height: 100vh;
+      grid-template-rows: 0.5fr 1fr 1fr 0.5fr;
+      grid-template-columns: 0.5fr 1fr 1fr 1fr;
+      grid-template-areas:
+        "header header header header"
+        "nav content content sidebar"
+        "nav content content ad"
+        "footer footer footer footer";
+      }
+      nav ul {
+          flex-direction: column;
+      }
+  }
