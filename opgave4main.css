@@ -55,7 +55,7 @@ Siden der kun skal være 1 main-head i denne kode ville det give mening at lave 
     "ad footer";
 
   }
-  /* 800 px or above  */
+  /* 800 px or above */
   @media only screen and (min-width: 800px){
     .wrapper {
       display: grid;
